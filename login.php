@@ -33,7 +33,7 @@
   <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#"><img src="imgs/favicon_io/favicon-32x32.png" alt="Logo"></a>
+          <a class="navbar-brand" href="index.html"><img src="imgs/favicon_io/favicon-32x32.png" alt="Logo"></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -54,12 +54,12 @@
     </nav>
     <div class="container-md text-center mt-5 hero-text" style="max-width: 500px; position: absolute; top: 0; bottom: 0; right: 0; left: 0; align-self: center; padding: 40px; border: 2px solid lightgrey;">
       <h1 class="mb-4">Welcome Back!</h1>
-      <form>
+      <form action = "dblogin.php" method="POST">
           <div class="mb-3">
-              <input type="email" class="form-control text-center" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email address">
+              <input type="email" name="email" class="form-control text-center" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email address">
           </div>
           <div class="mb-3">
-              <input type="password" class="form-control text-center" id="exampleInputPassword" placeholder="Password">
+              <input type="password" name="pass" class="form-control text-center" id="exampleInputPassword" placeholder="Password">
           </div>
           <button type="submit" class="btn btn-primary mb-3" onclick="login()">Sign In</button>
           <p>Don't have an Account? <a href="register.html">Register Here</a></p>
