@@ -44,10 +44,10 @@
                 <a class="nav-link" aria-current="page" href="index.html">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="register.html">Register</a>
+                <a class="nav-link active" aria-current="page" href="register.php">Register</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="login.html">Sign In</a>
+                <a class="nav-link" aria-current="page" href="login.php">Sign In</a>
               </li>
             </ul>
           </div>
