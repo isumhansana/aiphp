@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -31,7 +32,8 @@
     </style>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
           <a class="navbar-brand" href="index.html"><img src="imgs/favicon_io/favicon-32x32.png" alt="Logo"></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -52,41 +54,18 @@
           </div>
         </div>
     </nav>
-    <div class="container-md text-center mt-5 hero-text" style="max-width: 500px; position: absolute; top: 0; bottom: 0; right: 0; left: 0; align-self: center; padding: 40px; border: 2px solid lightgrey;">
-      <h1 class="mb-4">Welcome Back!</h1>
-      <form action = "dblogin.php" method="POST">
-          <div class="mb-3">
-              <input type="email" name="email" class="form-control text-center" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email address">
-          </div>
-          <div class="mb-3">
-              <input type="password" name="pass" class="form-control text-center" id="exampleInputPassword" placeholder="Password">
-          </div>
-          <button type="submit" class="btn btn-primary mb-3" onclick="login()">Sign In</button>
-          <?php
-          if (isset($_GET['newAccount'])) {
-              echo '<p class="text-success">Account Created Successfully </br> Sign In to Continue</p>';
-          } else {
-            echo "<p>Don't have an Account? <a href='register.html'>Register Here</a></p>";
-          }
-          
-          ?>
-      </form>
-      <?php
-      if(isset($_GET['invalidPass'])) {
-        echo(
-          '<div class="alert alert-danger mt-3" role="alert">
-            Invalid password. Please try again.
-          </div>'
-        );
-        } else if(isset($_GET['invalidEmail'])) {
-         echo(
-          '<div class="alert alert-danger mt-3" role="alert">
-            Invalid email or user does not exist.
-           </div>'
-          );
-        }
-    
-    ?>
+      
+      <div class="container-md text-center mt-5 hero-text" style="max-width: 700px; padding: 0px; background-color: white;">
+        <h1>OneStop Dashboard</h1>
+        
     </div>
-  </body>
+   
+
+    
+   
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  
+
+    </body>
 </html>

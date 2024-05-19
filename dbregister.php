@@ -32,7 +32,7 @@ $sql = "INSERT INTO Employee (email, firstName, lastName, gender, phone, salary,
 
 try {
     if ($conn->query($sql) === TRUE) {
-        header('Location: login.php');
+        header('Location: login.php?newAccount');
         exit();
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
