@@ -98,6 +98,14 @@
         <button type="submit" class="btn btn-primary mb-3" onclick="register()">Register</button>
         <p>Already have an Account? <a href="login.html">Sign In</a></p>
     </form>
+    <?php
+    if(isset($_GET['error'])) {
+      echo('<div class="alert alert-danger mt-3" role="alert">
+        User with the same email already exists
+      </div>');
+    }
+    
+    ?>
   </div>
   </body>
 </html>
