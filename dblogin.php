@@ -43,11 +43,10 @@ if ($result->num_rows === 1) {
 } else {
     // Invalid email or user does not exist
     header("Location: login.php?invalidEmail");
-    exit();
 }
 
 // Close the database connection
 $stmt->close();
 $conn->close();
-
+exit();
 ?>
