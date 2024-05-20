@@ -42,7 +42,7 @@
                 <a class="nav-link active" aria-current="page" href="usersList.php">Admin</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="signOut.php">Sign Out</a>
+                <a class="nav-link" aria-current="page" href="signOut.php">Logout</a>
               </li>
             </ul>
           </div>

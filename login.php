@@ -56,10 +56,10 @@
       <h1 class="mb-4">Welcome Back!</h1>
       <form action = "dblogin.php" method="POST">
           <div class="mb-3">
-              <input type="email" name="email" class="form-control text-center" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email address">
+              <input type="email" onkeyup="hideAlert()" name="email" class="form-control text-center" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email address" required>
           </div>
           <div class="mb-3">
-              <input type="password" name="pass" class="form-control text-center" id="exampleInputPassword" placeholder="Password">
+              <input type="password" name="pass" class="form-control text-center" id="exampleInputPassword" placeholder="Password" required>
           </div>
           <button type="submit" class="btn btn-primary mb-3" onclick="login()">Sign In</button>
           <?php
@@ -74,13 +74,13 @@
       <?php
       if(isset($_GET['invalidPass'])) {
         echo(
-          '<div class="alert alert-danger mt-3" role="alert">
+          '<div id="alert" class="alert alert-danger mt-3" role="alert">
             Invalid password. Please try again.
           </div>'
         );
       } else if(isset($_GET['invalidEmail'])) {
          echo(
-          '<div class="alert alert-danger mt-3" role="alert">
+          '<div id="alert" class="alert alert-danger mt-3" role="alert">
             Invalid email or user does not exist.
            </div>'
           );
@@ -88,5 +88,11 @@
     
     ?>
     </div>
+    <script>
+    function hideAlert() {
+      var alertBox = document.getElementById("alert");
+      alertBox.style.display = "none";
+    }
+  </script>
   </body>
 </html>

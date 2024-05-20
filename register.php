@@ -57,27 +57,27 @@
     <h1 class="mb-4">Get Registered</h1>
     <form action="dbregister.php" method="post">
         <div class="mb-3">
-            <input type="email" class="form-control text-center" id="exampleInputEmail1" name ="email" aria-describedby="emailHelp" placeholder="Email address">
+            <input type="email" onkeyup="hideAlert()" class="form-control text-center" id="exampleInputEmail1" name ="email" aria-describedby="emailHelp" placeholder="Email address" required>
             <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
         </div>
         <div class="mb-3">
-          <input type="password" class="form-control text-center" id="password" name="password" placeholder="Password">
+          <input type="password" class="form-control text-center" id="password" name="password" placeholder="Password" required>
       </div>
         <div class="mb-3">
-            <input type="text" class="form-control text-center" id="exampleInputFirstName" name="firstName" placeholder="First Name">
+            <input type="text" class="form-control text-center" id="exampleInputFirstName" name="firstName" placeholder="First Name" required>
         </div>
         <div class="mb-3">
-            <input type="text" class="form-control text-center" id="exampleInputLastName" name="lastName" placeholder="Last Name">
+            <input type="text" class="form-control text-center" id="exampleInputLastName" name="lastName" placeholder="Last Name" required>
         </div>
         <div class="mb-3">
-            <input type="tel" class="form-control text-center" id="exampleInputPhone" name="phone" placeholder="Phone">
+            <input type="tel" class="form-control text-center" id="exampleInputPhone" name="phone" placeholder="Phone" required>
         </div>
         <div class="mb-3">
-            <input type="number" class="form-control text-center" id="exampleInputSalary" name="salary" placeholder="Salary">
+            <input type="number" class="form-control text-center" id="exampleInputSalary" name="salary" placeholder="Salary" required>
         </div>
         <div class="mb-3">
             <label class="fw-normal">Date of Birth</label>
-            <input type="date" class="form-control text-center fw-light" id="exampleInputDOB" name="dateOfBirth" placeholder="Date of Birth">
+            <input type="date" class="form-control text-center fw-light" id="exampleInputDOB" name="dateOfBirth" placeholder="Date of Birth" required>
         </div>
         <div class="mb-3">
             <div class="row text-center">
@@ -100,12 +100,18 @@
     </form>
     <?php
     if(isset($_GET['error'])) {
-      echo('<div class="alert alert-danger mt-3" role="alert">
+      echo('<div id="alert" class="alert alert-danger mt-3" role="alert">
         User with the same email already exists
       </div>');
     }
     
     ?>
   </div>
+  <script>
+    function hideAlert() {
+      var alertBox = document.getElementById("alert");
+      alertBox.style.display = "none";
+    }
+  </script>
   </body>
 </html>
