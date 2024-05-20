@@ -103,7 +103,7 @@
         );
       } else {
         echo(
-          '<a href="register.html" class="btn btn-primary btn-lg">Get Started for Free</a>'
+          '<a href="register.php" class="btn btn-primary btn-lg">Get Started for Free</a>'
         );
       }
       ?>
