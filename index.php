@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -31,33 +35,78 @@
   </style>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="index.html"><img src="imgs/favicon_io/favicon-32x32.png" alt="Logo"></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.php"><img src="imgs/favicon_io/favicon-32x32.png" alt="Logo"></a>
+       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="register.php">Register</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="login.php">Sign In</a>
-            </li>
-          </ul>
-        </div>
+    <?php
+    if(isset($_SESSION['adminloggedin'])) {
+      echo(
+        '<li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="usersList.php">Admin</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="signOut.php">Sign Out</a>
+          </li>'
+      );
+    }else if(isset($_SESSION['userloggedin'])) {
+      echo(
+        '<li class="nav-item">
+           <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="dashboard.php">Dashboard</a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="signOut.php">Sign Out</a>
+         </li>'
+      );
+    }else {
+      echo(
+        '<li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="register.php">Register</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="login.php">Sign In</a>
+          </li>'
+      );
+    }
+    ?>
+        </ul>
       </div>
+    </div>
   </nav>
+    
   <div class="container">
     <div class="hero-text" style="background-color: white;">
       <img src="imgs/favicon_io/android-chrome-192x192.png" alt="Logo">
       <h1>OneStop Employee Cloud</h1>
       <p class="lead">Your solution for all employee management needs.</p>
-      <a href="register.html" class="btn btn-primary btn-lg">Get Started for Free</a>
+      <?php
+      if(isset($_SESSION['adminloggedin'])) {
+        echo(
+          '<a href="usersList.php" class="btn btn-primary btn-lg">Admin Panel</a>'
+        );
+      } else if(isset($_SESSION['userloggedin'])) {
+        echo(
+          '<a href="dashboard.php" class="btn btn-primary btn-lg">User Dashboard</a>'
+        );
+      } else {
+        echo(
+          '<a href="register.html" class="btn btn-primary btn-lg">Get Started for Free</a>'
+        );
+      }
+      ?>
   </div>
 
   <div id="services" class="container mt-3" style="text-align: center;">
