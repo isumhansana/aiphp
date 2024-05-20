@@ -1,2 +1,1 @@
-# ai-day1-bootstrap
-First Day
+# One Stop Employee Cloud
