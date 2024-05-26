@@ -31,7 +31,7 @@ if ($result->num_rows === 1) {
     $user = $result->fetch_assoc();
     // Verify the password
     if ($user['Password']===$pass) {
-        $_SESSION['userloggedin'] = true;
+        $_SESSION['userloggedin'] = $uname;
         // Redirect to the desired page
         header("Location: dashboard.php");
         exit();
