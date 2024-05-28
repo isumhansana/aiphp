@@ -91,9 +91,9 @@
         <table class="table mt-5">
             <thead>
                 <tr>
-                    <th class="hero-text" style="font-weight: 500;">Date Created</th>
                     <th class="hero-text" style="font-weight: 500;">Title</th>
                     <th class="hero-text" style="font-weight: 500;">Description</th>
+                    <th class="hero-text" style="font-weight: 500;">Date Created</th>
                 </tr>
             </thead>
             <tbody>
@@ -128,9 +128,9 @@
                     while ($row = $result->fetch_assoc()) {
                         // Display the data in table rows
                         echo "<tr>";
-                        echo "<td class='p-3'>" . $row["createdDate"] . "</td>";
                         echo "<td class='p-3'>" . $row["title"] . "</td>";
                         echo "<td class='p-3'>" . $row["description"] . "</td>";
+                        echo "<td class='p-3'>" . $row["createdDate"] . "</td>";
                         echo "<td class='p-3'> <a class='btn btn-outline-danger' href=" . "dbnotes.php?delid=" . $row["id"] . ">X</a> </td>";
                         echo "</tr>";
                     }
