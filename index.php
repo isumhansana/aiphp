@@ -44,19 +44,7 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav">
     <?php
-    if(isset($_SESSION['adminloggedin'])) {
-      echo(
-        '<li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="index.php">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="usersList.php">Admin</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="signOut.php">Logout</a>
-          </li>'
-      );
-    }else if(isset($_SESSION['userloggedin'])) {
+    if(isset($_SESSION['adminloggedin']) || isset($_SESSION['userloggedin'])) {
       echo(
         '<li class="nav-item">
            <a class="nav-link active" aria-current="page" href="index.php">Home</a>

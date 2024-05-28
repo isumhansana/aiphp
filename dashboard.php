@@ -87,6 +87,18 @@
     <h1>OneStop Dashboard</h1>
 
     <div class="row">
+      <?php
+        if(isset($_SESSION['adminloggedin'])) {
+          echo(
+            '<div class="col-md-4 mb-4">
+              <a href="usersList.php" class="card p-4 rounded-5 dash-card" style="width: 18rem;">
+                <img src="imgs/dashboard/userListAdmin.png" class="card-img-top mb-2" alt="...">
+                <h5 class="dash-card-text">Users List</h5>
+              </a>
+            </div>'
+          );
+        }
+      ?>
       <div class="col-md-4 mb-4">
         <a href="notes/index.php" class="card p-4 rounded-5 dash-card" style="width: 18rem;">
           <img src="imgs/dashboard/notes.png" class="card-img-top mb-2" alt="...">
