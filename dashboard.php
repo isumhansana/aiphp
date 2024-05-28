@@ -93,7 +93,7 @@
             '<div class="col-md-4 mb-4">
               <a href="usersList.php" class="card p-4 rounded-5 dash-card" style="width: 18rem;">
                 <img src="imgs/dashboard/userListAdmin.png" class="card-img-top mb-2" alt="...">
-                <h5 class="dash-card-text">Users List</h5>
+                <h5 class="dash-card-text">Employee Details</h5>
               </a>
             </div>'
           );
@@ -102,7 +102,7 @@
       <div class="col-md-4 mb-4">
         <a href="notes/index.php" class="card p-4 rounded-5 dash-card" style="width: 18rem;">
           <img src="imgs/dashboard/notes.png" class="card-img-top mb-2" alt="...">
-          <h5 class="dash-card-text">Notes Apps</h5>
+          <h5 class="dash-card-text">Notes App</h5>
         </a>
       </div>
     </div>

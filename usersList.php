@@ -39,7 +39,7 @@
                 <a class="nav-link" aria-current="page" href="index.php">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="dashboard.php">Dashboard</a>
+                <a class="nav-link" aria-current="page" href="dashboard.php">Dashboard</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" aria-current="page" href="signOut.php">Logout</a>
@@ -49,7 +49,7 @@
         </div>
     </nav>
     <div class="container">
-        <h1 class="hero-text mb-4">Employee Table</h1>
+        <h1 class="hero-text mb-4">Employee Details</h1>
         <table class="table mt-5">
             <thead>
                 <tr>
