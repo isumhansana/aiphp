@@ -1,6 +1,6 @@
 <?php
     session_start();
-    if(!isset($_SESSION['userloggedin'])) {
+    if(!(isset($_SESSION['userloggedin']) || isset($_SESSION['adminloggedin']))) {
         header('Location: ../login.php');
         exit();
     }
@@ -67,7 +67,7 @@
     </nav>
 
     <div class="container-md text-center mt-5 hero-text"
-        style="max-width: 700px; padding: 0px; background-color: white;">
+        style="max-width: 900px; padding: 0px; background-color: white;">
         <h1>Notes App</h1>
 
         <form action="dbnotes.php" method="post">
@@ -82,7 +82,7 @@
                     <input type="text" class="form-control" id="description" name="description" placeholder="Description" required/>
                 </div>
             </div>
-            <div class="col-md-2 text-right">
+            <div class="col-md-2">
                 <button type="submit" class="btn btn-primary">+ Add</button>
             </div>
         </div>
@@ -103,6 +103,11 @@
                 $username = "root";
                 $password = "";
                 $dbname = "aiphp";
+                if (isset($_SESSION['userloggedin'])) {
+                    $email = $_SESSION['userloggedin'];
+                } else {
+                    $email = "admin@gmail.com";
+                }
 
                 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -112,7 +117,7 @@
                 }
 
                 // SQL query to select the desired columns from the "Employee" table
-                $sql = "SELECT id,createdDate,title,description FROM note ORDER BY createdDate DESC";
+                $sql = "SELECT id,createdDate,title,description FROM note WHERE email = '$email' ORDER BY createdDate DESC";
 
                 // Execute the query
                 $result = $conn->query($sql);
@@ -126,7 +131,7 @@
                         echo "<td class='p-3'>" . $row["createdDate"] . "</td>";
                         echo "<td class='p-3'>" . $row["title"] . "</td>";
                         echo "<td class='p-3'>" . $row["description"] . "</td>";
-                        echo "<td class='p-3'> <a href=" . "dbnotes.php?delid=" . $row["id"] . ">X</a> </td>";
+                        echo "<td class='p-3'> <a class='btn btn-outline-danger' href=" . "dbnotes.php?delid=" . $row["id"] . ">X</a> </td>";
                         echo "</tr>";
                     }
                 } else {

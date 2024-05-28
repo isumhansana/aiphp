@@ -1,4 +1,10 @@
 <?php
+    session_start();
+    if(!(isset($_SESSION['userloggedin']) || isset($_SESSION['adminloggedin']))) {
+        header('Location: ../login.php');
+        exit();
+    }
+
     // Enable error reporting
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
@@ -16,8 +22,8 @@
         $title = $_POST['title'];
         $description = $_POST['description'];
         
-        if(isset($_POST['email'])){
-            $email=$_POST['email'];
+        if(isset($_SESSION['userloggedin'])){
+            $email=$_SESSION['userloggedin'];
         }else{
             $email="admin@gmail.com";
         }
@@ -44,5 +50,16 @@
         $stmt->close();
         $conn->close();
     }
-    
+
+    //check if delete request is made
+    if(isset($_GET['delid'])){
+        $id = $_GET['delid'];
+        $conn = new mysqli($servername, $username, $password, $dbname);
+        $sql = "DELETE FROM note WHERE id = $id";
+        if ($conn->query($sql) === TRUE) {
+            header("Location: index.php?deleted");
+            exit();
+        }
+        $conn->close();
+    }    
 ?>
