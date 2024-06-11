@@ -72,18 +72,18 @@
 
     <div class="container-md text-center mt-5 hero-text"
         style="max-width: 900px; padding: 0px; background-color: white;">
-        <h1>Notes App</h1>
+        <h1>Task App</h1>
 
-        <form action="dbnotes.php" method="post">
+        <form action="dbtasks.php" method="post">
         <div class="row">
             <div class="col-md-4">
                 <div class="form-group">
-                    <input type="text" class="form-control" id="title" name="title" placeholder="Title" required/>
+                    <input type="text" class="form-control" id="listName" name="listName" placeholder="List Name" required/>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-group">
-                    <input type="text" class="form-control" id="description" name="description" placeholder="Description" required/>
+                    <input type="text" class="form-control" id="caption" name="caption" placeholder="Caption" required/>
                 </div>
             </div>
             <div class="col-md-1">
