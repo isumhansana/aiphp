@@ -31,27 +31,9 @@
     </style>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="index.php"><img src="imgs/favicon_io/favicon-32x32.png" alt="Logo"></a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="index.php">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="register.php">Register</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="login.php">Sign In</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-    </nav>
+    <?php
+      include_once('nav-common.php');
+    ?>
     <div class="container-md text-center mt-5 hero-text" style="max-width: 500px; position: absolute; top: 0; bottom: 0; right: 0; left: 0; align-self: center; padding: 40px; border: 2px solid lightgrey;">
       <h1 class="mb-4">Welcome Back!</h1>
       <form action = "dblogin.php" method="POST">
