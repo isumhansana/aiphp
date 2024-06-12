@@ -124,7 +124,7 @@
 
         <!-- Modal Ends -->
 
-        <table class="table mt-5">
+        <table class="table table-hover mt-5">
             <thead>
                 <tr>
                     <th class="hero-text" style="font-weight: 500;">List Name</th>
