@@ -127,8 +127,8 @@
         <table class="table mt-5">
             <thead>
                 <tr>
-                    <th class="hero-text" style="font-weight: 500;">Title</th>
-                    <th class="hero-text" style="font-weight: 500;">Description</th>
+                    <th class="hero-text" style="font-weight: 500;">List Name</th>
+                    <th class="hero-text" style="font-weight: 500;">Caption</th>
                     <th class="hero-text" style="font-weight: 500;">Date Created</th>
                 </tr>
             </thead>
@@ -155,10 +155,10 @@
                 //Check if a search request is made
                 if(isset($_GET['search']) && !empty($_GET['search'])) {
                     $search=$_GET['search'];
-                    $sql = "SELECT id,createdDate,title,description FROM note WHERE email = '$email' AND title LIKE '%$search%' ORDER BY createdDate DESC";
+                    $sql = "SELECT taskID,createdDate,listName,caption FROM task WHERE email = '$email' AND listName LIKE '%$search%' ORDER BY createdDate DESC";
                 }else{
                     // SQL query to select the desired columns from the "Employee" table
-                    $sql = "SELECT id,createdDate,title,description FROM note WHERE email = '$email' ORDER BY createdDate DESC";
+                    $sql = "SELECT taskID,createdDate,listName,caption FROM task WHERE email = '$email' ORDER BY createdDate DESC";
                 }
 
                 // Execute the query
@@ -170,10 +170,10 @@
                     while ($row = $result->fetch_assoc()) {
                         // Display the data in table rows
                         echo "<tr>";
-                        echo "<td class='p-3'>" . $row["title"] . "</td>";
-                        echo "<td class='p-3'>" . $row["description"] . "</td>";
+                        echo "<td class='p-3'>" . $row["listName"] . "</td>";
+                        echo "<td class='p-3'>" . $row["caption"] . "</td>";
                         echo "<td class='p-3'>" . $row["createdDate"] . "</td>";
-                        echo "<td class='p-3'> <a class='btn btn-outline-danger' href=" . "dbnotes.php?delid=" . $row["id"] . ">X</a> </td>";
+                        echo "<td class='p-3'> <a class='btn btn-outline-danger' href=" . "dbtasks.php?delid=" . $row["taskID"] . ">X</a> </td>";
                         echo "</tr>";
                     }
                 } else {
@@ -188,11 +188,6 @@
 
     </div>
     </div>
-
-
-
-
-
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

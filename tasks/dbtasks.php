@@ -19,8 +19,8 @@
     // Check if the form has been submitted
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Get the form data
-        $title = $_POST['title'];
-        $description = $_POST['description'];
+        $listName = $_POST['listName'];
+        $caption = $_POST['caption'];
         
         if(isset($_SESSION['userloggedin'])){
             $email=$_SESSION['userloggedin'];
@@ -36,8 +36,8 @@
         }
 
         // Prepare and execute the SQL statement
-        $stmt = $conn->prepare("INSERT INTO note (title, description,email) VALUES (?, ?,?)");
-        $stmt->bind_param("sss", $title, $description,$email);
+        $stmt = $conn->prepare("INSERT INTO task (listName, caption, email) VALUES (?, ?, ?)");
+        $stmt->bind_param("sss", $listName, $caption, $email);
 
         if ($stmt->execute()) {
             header("Location: index.php?inserted");
@@ -55,7 +55,7 @@
     if(isset($_GET['delid'])){
         $id = $_GET['delid'];
         $conn = new mysqli($servername, $username, $password, $dbname);
-        $sql = "DELETE FROM note WHERE id = $id";
+        $sql = "DELETE FROM task WHERE taskID = $id";
         if ($conn->query($sql) === TRUE) {
             header("Location: index.php?deleted");
             exit();
