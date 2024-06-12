@@ -38,6 +38,10 @@
             font-size: 18px;
             margin-bottom: 48px;
         }
+
+        .clickable-row {
+            cursor: pointer;
+        }
     </style>
 </head>
 
@@ -169,7 +173,7 @@
                     // Fetch the rows
                     while ($row = $result->fetch_assoc()) {
                         // Display the data in table rows
-                        echo "<tr>";
+                        echo "<tr class='clickable-row' data-href='index.php?clicked=" . $row["taskID"] . "'>";
                         echo "<td class='p-3'>" . $row["listName"] . "</td>";
                         echo "<td class='p-3'>" . $row["caption"] . "</td>";
                         echo "<td class='p-3'>" . $row["createdDate"] . "</td>";
@@ -192,6 +196,18 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+        var rows = document.querySelectorAll(".clickable-row");
+
+        rows.forEach(function(row) {
+            row.addEventListener("click", function() {
+            window.location.href = row.dataset.href;
+            });
+        });
+        });
     </script>
 
 
