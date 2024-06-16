@@ -173,7 +173,7 @@
                     // Fetch the rows
                     while ($row = $result->fetch_assoc()) {
                         // Display the data in table rows
-                        echo "<tr class='clickable-row' data-href='index.php?clicked=" . $row["taskID"] . "'>";
+                        echo "<tr class='clickable-row' data-href='dbitem.php?taskid=" . $row["taskID"] . "'>";
                         echo "<td class='p-3'>" . $row["listName"] . "</td>";
                         echo "<td class='p-3'>" . $row["caption"] . "</td>";
                         echo "<td class='p-3'>" . $row["createdDate"] . "</td>";
