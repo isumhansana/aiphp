@@ -106,11 +106,11 @@
     ?>
 
     <div class="container-md text-center mt-5 hero-text"
-        style="max-width: 900px; padding: 0px; background-color: white;">
+        style="max-width: 900px; padding: 10px; background-color: #f8f9fa; border-style: groove">
         <?php 
             echo("
                 <h1>$listName</h1>
-                <p>$createdDate</p>
+                <p class='fs-5' style='color: #6c757d'>$createdDate</p>
             "); 
         ?>
 
@@ -159,7 +159,7 @@
 
         <!-- Modal Ends -->
 
-        <ul class="list-group mt-5">
+        <ul class="list-group mt-4 mb-2" style="text-align: left">
             <?php
                 // Connect to the MySQL database
                 $servername = "localhost";
@@ -196,10 +196,10 @@
                     // Fetch the rows
                     while ($row = $result->fetch_assoc()) {
                         // Display the data in table rows
-                        echo "<li class='list-group list-group-flush'>";
-                        echo "<input class='form-check-input me-1' type='checkbox' value='' id='firstCheckbox'>";
-                        echo "<label class='form-check-label' for='firstCheckbox'>.$row[Description].</label>";
-                        echo "</li>";
+                        echo ("<li class='list-group-flush fs-4' style='list-style-type: none'>
+                            <input class='form-check-input me-1' type='checkbox' value='' id=".$row['ItemId']."> 
+                            <label class='form-check-label' for=".$row['ItemId'].">".$row['Description']."</label> &nbsp;");
+                        echo "<a class='btn btn-outline-danger' style='font-size: 12px' href=" . "dbitem.php?delid=" . $row["ItemId"] . "&taskID=" . $taskID . ">X</a></li>";
                     }
                 } else {
                     echo "Error: " . $sql . "<br>" . $conn->error;

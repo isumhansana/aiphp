@@ -59,7 +59,7 @@
         $conn = new mysqli($servername, $username, $password, $dbname);
         $sql = "DELETE FROM item WHERE ItemId = $id";
         if ($conn->query($sql) === TRUE) {
-            header("Location: index.php?deleted");
+            header("Location: index.php?deleted&taskID=".$taskID);
             exit();
         }
         $conn->close();
