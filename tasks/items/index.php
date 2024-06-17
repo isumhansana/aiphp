@@ -107,6 +107,13 @@
 
     <div class="container-md text-center mt-5 hero-text"
         style="max-width: 900px; padding: 10px; background-color: #f8f9fa; border-style: groove">
+        <div class="back-button" style="text-align: left;">
+            <button class="btn btn-outline-secondary btn-sm" onclick="goBack()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
+                </svg>
+            </button>
+        </div>
         <?php 
             echo("
                 <h1>$listName</h1>
@@ -216,6 +223,12 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+    </script>
+
+    <script>
+        function goBack() {
+            window.location.href = "../index.php";
+        }
     </script>
 
 
