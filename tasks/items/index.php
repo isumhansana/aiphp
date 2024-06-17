@@ -151,7 +151,7 @@
             <div class="modal-content">
             
             <div class="modal-body">
-                <form action="" method="GET">
+                <form action="index.php?taskID=<?php echo ($taskID); ?>" method="POST">
                 
                 <div class="input-group mb-3">
                 <input type="text" name="search" class="form-control" placeholder="Spotlight Search" aria-label="Spotlight Search" aria-describedby="basic-addon2">
@@ -187,8 +187,8 @@
                 }
 
                 //Check if a search request is made
-                if(isset($_GET['search']) && !empty($_GET['search'])) {
-                    $search=$_GET['search'];
+                if(isset($_POST['search']) && !empty($_POST['search'])) {
+                    $search=$_POST['search'];
                     $sql = "SELECT ItemId, Description, Status FROM item WHERE taskID = '$taskID' AND Description LIKE '%$search%'";
                 }else{
                     // SQL query to select the desired columns from the "Employee" table
