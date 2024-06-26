@@ -217,9 +217,18 @@
                     while ($row = $result->fetch_assoc()) {
                         // Display the data in table rows
                         echo ("<li class='list-group-flush fs-4' style='list-style-type: none'>
-                            <input class='form-check-input me-1' type='checkbox' value='' id=".$row['ItemId'].'" onchange="updateStatus(' . $row['ItemId'] . ')"' . ($row['Status'] == '1' ? ' checked' : '') ."> 
-                            <label class='form-check-label' for=".$row['ItemId'].">".$row['Description']."</label> &nbsp;");
-                        echo "<a class='btn btn-outline-danger' style='font-size: 12px' href=" . "dbitem.php?delid=" . $row["ItemId"] . "&taskID=" . $taskID . ">X</a></li>";
+                            <input class='form-check-input me-1' type='checkbox' value='' id='" . $row['ItemId'] . "'" . ($row['Status'] == '1' ? ' checked' : '') . " onchange='updateStatus(" . $row['ItemId'] . ")'> 
+                            <label id='label_" . $row['ItemId'] . "' class='form-check-label' for='" . $row['ItemId'] . "'" . ($row['Status'] == '1' ? " style='text-decoration: line-through;'" : '') . ">" . $row['Description'] . "</label> &nbsp;");
+                        echo "<a class='btn btn-outline-danger' style='font-size: 12px' href='dbitem.php?delid=" . $row["ItemId"] . "&taskID=" . $taskID . "'>X</a></li>";
+                        
+                        echo "<script>
+                            const checkbox_" . $row['ItemId'] . " = document.getElementById('" . $row['ItemId'] . "');
+                            const label_" . $row['ItemId'] . " = document.getElementById('label_" . $row['ItemId'] . "');
+                        
+                            checkbox_" . $row['ItemId'] . ".addEventListener('change', function() {
+                                label_" . $row['ItemId'] . ".style.textDecoration = this.checked ? 'line-through' : 'none';
+                            });
+                        </script>";
                     }
                 } else {
                     echo "Error: " . $sql . "<br>" . $conn->error;
